@@ -10,6 +10,8 @@ Estructura while
 
 Estructura do...while
 
+Event -> Accion que ocurre en el contrato la cual queremos que sea notificada fuera del mismo
+
 */
 
 
@@ -18,6 +20,8 @@ contract practica4{
     uint[] public numeros;
     string public resultado;
 
+    event NotificacionDeCondicion(bool condicion);
+
     constructor(bool condicion){
         if(condicion){
             resultado = "Condicion True";
@@ -25,6 +29,9 @@ contract practica4{
         else{
             resultado = "Condicion False";
         }
+        
+        emit NotificacionDeCondicion(condicion);
+
         for(uint iterador= 0 ; iterador < 10; iterador++){
             numeros.push(iterador);
         }
